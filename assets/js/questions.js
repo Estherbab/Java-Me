@@ -1,4 +1,4 @@
-
+// creating an array and passing the questions, choices and correct answer
 var codequizQuestions = [
     { 
       question:'How many ways are there to display a variable in javascript?',

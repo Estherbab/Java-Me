@@ -1,11 +1,18 @@
-var timer = document.querySelector("#time")
+// Declaring all required variables
+var timer = document.querySelector(".timer")
 var secondscounter = 60
 var timeLeft = 10
-var timeEl = document.querySelector("#time")
+var timeEl = document.querySelector(".timer")
 var startScreen = document.querySelector(".start")
 var startButton = document.querySelector(".btn")
 var displayquestions = document.querySelector(".hide")
 var questionsContainer = document.getElementById("#questions");
+var endScreen = document.getElementById("#end-screen")
+var finalScore = document.getElementById("#final-score")
+var initials = document.getElementById("#initials")
+var submit = document.getElementById("#submit")
+var feedback = document.getElementById("#feedback")
+var highScores = document.querySelector(".scores")
 
 
 
