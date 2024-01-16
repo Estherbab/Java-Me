@@ -4,8 +4,7 @@ var timeLeft = 10
 var timeEl = document.querySelector("#time")
 var startScreen = document.querySelector(".start")
 var startButton = document.querySelector(".btn")
-
-
+var displayquestions = document.querySelector(".hide")
 
 
 
@@ -20,3 +19,12 @@ var timerInterval = setInterval(function () {
         sendMessage();
     }
     }, 1000); //1 second = 1000 milliseconds //
+
+function startQuiz() {
+    console.log("Quiz Started!");
+    startScreen.style.display = 'none';
+    displayquestions.style.display = 'block';
+    console.log(displayquestions)
+    start.classList.add('hide');
+}
+startButton.addEventListener('click', startQuiz);
