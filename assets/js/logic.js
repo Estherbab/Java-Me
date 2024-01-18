@@ -1,6 +1,6 @@
 // Declaring all the required variables for the code quiz
 var timer = document.querySelector(".timer")
-var secondscounter = 5
+var secondscounter = 60
 var timeLeft = 10
 var timeEl = document.querySelector(".timer")
 var startScreen = document.querySelector(".start")
@@ -23,12 +23,12 @@ function startQuiz() {
 // on the window and is also shown in the console log. Once the timer gets to 0 it stops
 var timerInterval = setInterval(function () {
     if (secondscounter >= 1) { 
-        secondscounter --                                    // timer logs every second
+        secondscounter --                                    // -1 is deducted from the timer
         timer.textContent = secondscounter;                      // timer textcontent shows in window
      //   console.log(secondscounter);                            // timer will appear in the console
-    } else if (secondscounter <= 0) {                         // when counter is = 0 stop count
+    } else if (secondscounter <= 0) {                         // if timer is less than or = to 0
         timer.textContent = secondscounter; 
-        clearInterval(timerInterval);                         // clear the counter
+        clearInterval(timerInterval);                         // clear the counter time
        // sendMessage();
     }
     }, 1000); //1 second = 1000 milliseconds
@@ -73,6 +73,7 @@ choiceButton.addEventListener("click", function(event){
         endScreen.classList.remove("hide")
         questions.style.display = "none"
         secondscounter = 0
+        timer.style.display = "none"
         console.log('last question')
     }
 });
