@@ -82,12 +82,11 @@ choiceButton.addEventListener("click", function(event){                         
 }
 
 
-function submitForm () {
-    console.log('submitBtn clicked');
+function submitForm () {                                                          // function for the submit initials form
+    console.log(inputInitials.value);                                            // .value property used on an input(inputInitials) to get the value of that input
   
 }
-
-submitButton.addEventListener('click', submitForm)
+submitButton.addEventListener('click', submitForm)                            // eventlistener for when the submit button is clicked 
 
 
 
