@@ -8,7 +8,7 @@ var codequizQuestions = [
      { 
       question:'There are 4 ways to display data in javascript, which one is incorrect?',
       choices: ["innerHTML", "console.log", "window.alert", "inline-flex"],  
-      correctanswer: 'inlinie-flex'
+      correctanswer: 'inline-flex'
      },
      {
       question:'How many javscript data types are there?',

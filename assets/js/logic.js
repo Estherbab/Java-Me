@@ -88,6 +88,50 @@ function submitForm () {                                                        
 }
 submitButton.addEventListener('click', submitForm)                            // eventlistener for when the submit button is clicked 
 
+var newScores = {                                      // when one user finishes the quiz we have a new score in this object
+    inputInitials: "EB",
+    score: 100
+
+}
+
+let totalScores = [{                                  // the previous scores of all the users that have taken the test, each array is pushed to local storage
+    inputInitials: "EB",
+    score: 100
+},
+{
+    inputInitials: "SK",
+    score: 100}]
+
+//var storedhighScores = JSON.parse(localStorage.getItem("highScores"))
+
+localStorage.setItem("highScores", JSON.stringify(totalScores))                               // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
+
+if(JSON.parse(localStorage.getItem("highScores")) !== null){                                // if the highScores is not null
+    console.log("Highscores not null");                                                           // when its not null we will see the keyname of highScores and the Value in local storage/console
+var storedhighScores = JSON.parse(localStorage.getItem("highScores"))                     // then set the variable of storehighScores to be this value and save to local storage
+}
+else {
+    console.log(" Highscores is Null")
+    var storedhighScores = []                                                              // if it is null we going to set it to an empty array
+}
+
+console.log(storedhighScores)                                                              // if we log storedhighScores we get the initials
+//console.log(storedhighScores[0].inputInitials);                                         // if we log this we get the first initials in the array
+           
+
+//console.log(JSON.parse(localStorage.getItem("testing")));
+
+//console.log(newscores[0].inputInitials, newscores[0].score);
+
+
+
+// When the page loads i want to get the data from from local storage, or set variable to an empty array
+
+
+
+
+// when the user finishes the quiz i want to store their data by adding it to previous scores
+
 
 
 
