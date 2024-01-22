@@ -40,7 +40,7 @@ var timerInterval = setInterval(function () {
     start.classList.add('hide');                                                       // hides the start button
     displayquestions()
 }
-startButton.addEventListener('click', startQuiz);                                           // once start button is clicked the quiz starts
+startButton.addEventListener('click', startQuiz);                                                      // once start button is clicked the quiz starts
 
 var questionIndex = 0
 // Function to display the codequizQuestions once the start button is clicked
@@ -81,27 +81,26 @@ choiceButton.addEventListener("click", function(event){                         
     }   
 }
 
-// function for the submitform when the submitButton is clicked an eventlistener goes off after the user inputs their initials, it will take the new object with the intials from 
-// the new input then it will be pushed to stored scores, then it will be pushed to local storage
+// function for the submitform when the submitButton is clicked an eventlistener goes off after the user inputs their initials, 
+//it will take the new object with the intials from the new input, then it will be pushed to stored scores. Then it will be pushed to local storage.
 function submitForm () {                                                          
-    console.log(inputInitials.value);                             // .value property used on an input(inputInitials) to get the value of the text input
+    console.log(inputInitials.value);                                                                      // .value property used on an input(inputInitials) to get the value of the text input
     var newScores = {                                                                                     // when one user finishes the quiz we have a new score in this object
         inputInitials: inputInitials.value,                                                              // instead of hardcoding the initials e.g "EB" we change it to .value property to get the value of the text input
         score: 100
     
     }
     
-    storedhighScores.push(newScores)                                                                       // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
+    storedhighScores.push(newScores)                                                                        // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
     
-    localStorage.setItem("highScores", JSON.stringify(storedhighScores))                                 // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
-    console.log(storedhighScores)                                                                      // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
+    localStorage.setItem("highScores", JSON.stringify(storedhighScores))                                  // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
+    console.log(storedhighScores)                                                                        // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
   
 }
 submitButton.addEventListener('click', submitForm)                           
 
 
- // the previous scores of all the users that have taken the test, each array is pushed to local storage
-
+// the previous scores of all the users that have taken the test, each array is pushed to local storage
 let totalScores = [{   
     inputInitials: "EB",                            
     score: 100
@@ -114,28 +113,33 @@ let totalScores = [{
 
 
 
-if(JSON.parse(localStorage.getItem("highScores")) !== null){                                                   // if the highScores is not null
-    console.log("Highscores not null");                                                                       // when its not null we will see the keyname of highScores and the Value in local storage/console
-var storedhighScores = JSON.parse(localStorage.getItem("highScores"))                                        // then set the variable of storehighScores to be this value and save to local storage
+if(JSON.parse(localStorage.getItem("highScores")) !== null){                                                      // if the highScores is not null
+    console.log("Highscores not null");                                                                          // when its not null we will see the keyname of highScores and the Value in local storage/console
+var storedhighScores = JSON.parse(localStorage.getItem("highScores"))                                           // then set the variable of storehighScores to be this value and save to local storage
 }
 else {
     console.log(" Highscores is Null")
-    var storedhighScores = []                                                                            // else if it is null we going to set it to an empty array
+    var storedhighScores = []                                                                                 // else if it is null we going to set it to an empty array
 }
 
 function displayscores () {
-  //  highScores.textContent = JSON.stringify(storedhighScores)
- // highScores.append(JSON.stringify(storedhighScores))
- // loop through the array length of storehighScores, then for each item and plus 1 object. so in the concole you will see each of the individual objects
+//highScores.textContent = JSON.stringify(storedhighScores)
+//highScores.append(JSON.stringify(storedhighScores))
+
+//loop through the array length of storedhighScores, then for each item add plus 1 object,
+//so in the concole you will see each of the individual objects
 for (let i = 0; i < storedhighScores.length; i++) {
 console.log(storedhighScores[i]);
-highScores.append(storedhighScores[i].inputInitials)            // it showed all the initails on one page clamped together, and does not over write all the initials
-//highScores.textContent = storedhighScores[i].inputInitials        // with text content it shows 1 initial at a time, the last initial, it overwrites whatever is there and shows last one
-// 1. create element
-var eachScore = document.createElement("div")                              // we use element to create a div for each single score
-// 2. attach styling/attribute
-// 3. append to page
 
+//highScores.append(storedhighScores[i].inputInitials)                                                    // it showed all the initails on one page clamped together, and does not over write all the initials
+//highScores.textContent = storedhighScores[i].inputInitials                                             // with text content it shows 1 initial at a time, the last initial, it overwrites whatever is there and shows last one
+
+// 1. create an element; we creating a div element for each single score
+var eachScore = document.createElement("div")                                                   
+// 2. attach styling/attribute; we setting the text content to the initials being inout
+eachScore.textContent = storedhighScores[i].inputInitials                                  
+// 3. we appending each single score to each div element
+highScores.append(eachScore);                                                              
 }
 }
 displayscores()
