@@ -21,3 +21,5 @@ var codequizQuestions = [
       correctanswer: 'all the above'
      },
  ]
+
+

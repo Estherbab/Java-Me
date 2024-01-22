@@ -8,7 +8,7 @@ var startButton = document.querySelector(".btn")
 //var displayquestions = document.querySelector(".hide")
 var questionsContainer = document.getElementById("questions");
 var endScreen = document.getElementById("end-screen")
-var finalScore = document.getElementById("final-score")
+var finalScore = localStorage.getItem("final-score")
 var inputInitials = document.getElementById("initials")
 var submitButton = document.getElementById("submit")
 var feedback = document.getElementById("feedback")
@@ -55,6 +55,31 @@ function displayquestions() {
         choiceButton.textContent = currentQuestion.choices[i]                                // the text content for each choice button = the current question title, all the choices & the index number of the choices
         choicesEl.appendChild(choiceButton)                                                 // adds a new child node to the existing parent node in html 
 
+// audio for correct and incorrect sound
+const correctAudio = new Audio('./assets/sfx/correct.wav');
+const incorrectAudio = new Audio('./assets/sfx/incorrect.wav');
+// function to check user answer
+function checkAnswer(event) {
+let userAnswer = event.target;
+console.log(userAnswer.textContent);
+if (userAnswer.textContent === codequizQuestions[questionIndex]-answer) {
+questionIndex++;
+if (questionIndex === codequizQuestions.length) {
+endQuiz();
+} else E
+getQuestions ();
+correctAudio.play();
+} else {
+timeLeft -= 10; questionIndex++;
+if (questionIndex === codequizQuestions.length) {
+endQuiz();
+} else {
+getQuestions ();
+incorrectAudio.play();
+}
+}
+}
+
 // add event listener on choices buttons to
 choiceButton.addEventListener("click", function(event){                                   // function waits for the choicebutton to be clicked(event) then responds to it
     console.log(event.target.textContent)                                                // console log to see if eventlistener is working
@@ -94,13 +119,21 @@ function submitForm () {
     storedhighScores.push(newScores)                                                                        // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
     
     localStorage.setItem("highScores", JSON.stringify(storedhighScores))                                  // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
-    console.log(storedhighScores)                                                                        // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
+    console.log(storedhighScores)                                                                      // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
   
 }
-submitButton.addEventListener('click', submitForm)                           
+submitButton.addEventListener('click', submitForm) 
+if (console.log("Initials submitted")) {
+
+}
 
 
-// the previous scores of all the users that have taken the test, each array is pushed to local storage
+
+
+// LOCAL STORAGE
+
+ // the previous scores of all the users that have taken the test, each array is pushed to local storage
+
 let totalScores = [{   
     inputInitials: "EB",                            
     score: 100
@@ -138,7 +171,7 @@ console.log(storedhighScores[i]);
 var eachScore = document.createElement("div")                                                   
 // 2. attach styling/attribute; we setting the text content to the initials being inout
 eachScore.textContent = storedhighScores[i].inputInitials                                  
-// 3. we appending each single score to each div element
+// 3. we appending each single score to each dive element
 highScores.append(eachScore);                                                              
 }
 }
