@@ -12,7 +12,7 @@ var finalScore = document.getElementById("final-score")
 var inputInitials = document.getElementById("initials")
 var submitButton = document.getElementById("submit")
 var feedback = document.getElementById("feedback")
-//var highScores = document.querySelector(".scores")
+var highScores = document.querySelector(".scores")
 var questiontitle = document.getElementById("question-title")
 var choicesEl = document.getElementById("choices")
 
@@ -122,6 +122,13 @@ else {
     console.log(" Highscores is Null")
     var storedhighScores = []                                                                            // else if it is null we going to set it to an empty array
 }
+
+function displayscores () {
+    highScores.textContent = JSON.stringify(storedhighScores)
+
+}
+
+displayscores()
 
 
 
