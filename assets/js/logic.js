@@ -129,8 +129,12 @@ function displayscores () {
  // loop through the array length of storehighScores, then for each item and plus 1 object. so in the concole you will see each of the individual objects
 for (let i = 0; i < storedhighScores.length; i++) {
 console.log(storedhighScores[i]);
-highScores.append(storedhighScores[i].inputInitials)
-
+highScores.append(storedhighScores[i].inputInitials)            // it showed all the initails on one page clamped together, and does not over write all the initials
+//highScores.textContent = storedhighScores[i].inputInitials        // with text content it shows 1 initial at a time, the last initial, it overwrites whatever is there and shows last one
+// 1. create element
+var eachScore = document.createElement("div")                              // we use element to create a div for each single score
+// 2. attach styling/attribute
+// 3. append to page
 
 }
 }
