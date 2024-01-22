@@ -81,17 +81,29 @@ choiceButton.addEventListener("click", function(event){                         
     }   
 }
 
-// function for the submitform when the submitButton is clicked an eventlistener goes off after the user inputs their initials
+// function for the submitform when the submitButton is clicked an eventlistener goes off after the user inputs their initials, it will take the new object with the intials from 
+// the new input then it will be pushed to stored scores, then it will be pushed to local storage
 function submitForm () {                                                          
     console.log(inputInitials.value);                             // .value property used on an input(inputInitials) to get the value of the text input
+    var newScores = {                                                                                     // when one user finishes the quiz we have a new score in this object
+        inputInitials: inputInitials.value,                                                              // instead of hardcoding the initials e.g "EB" we change it to .value property to get the value of the text input
+        score: 100
+    
+    }
+    
+    storedhighScores.push(newScores)                                                                       // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
+    
+    localStorage.setItem("highScores", JSON.stringify(storedhighScores))                                 // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
+    console.log(storedhighScores)                                                                      // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
   
 }
 submitButton.addEventListener('click', submitForm)                           
 
 
  // the previous scores of all the users that have taken the test, each array is pushed to local storage
- inputInitials: "EB",
-let totalScores = [{                                 
+
+let totalScores = [{   
+    inputInitials: "EB",                            
     score: 100
 },
 {
@@ -111,17 +123,9 @@ else {
     var storedhighScores = []                                                                            // else if it is null we going to set it to an empty array
 }
 
-var newScores = {                                                                                     // when one user finishes the quiz we have a new score in this object
-    inputInitials: inputInitials.value,                                                              // instead of hardcoding the initials e.g "EB" we change it to .value property to get the value of the text input
-    score: 100
 
-}
 
-storedhighScores.push(newScores)                                                                       // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
 
-localStorage.setItem("highScores", JSON.stringify(storedhighScores))                                 // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
-
-console.log(storedhighScores)                                                                      // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
 //console.log(storedhighScores[0].inputInitials);                                                 // if we log this we get the first initials in the array
            
 
