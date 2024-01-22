@@ -124,10 +124,16 @@ else {
 }
 
 function displayscores () {
-    highScores.textContent = JSON.stringify(storedhighScores)
+  //  highScores.textContent = JSON.stringify(storedhighScores)
+ // highScores.append(JSON.stringify(storedhighScores))
+ // loop through the array length of storehighScores, then for each item and plus 1 object. so in the concole you will see each of the individual objects
+for (let i = 0; i < storedhighScores.length; i++) {
+console.log(storedhighScores[i]);
+highScores.append(storedhighScores[i].inputInitials)
+
 
 }
-
+}
 displayscores()
 
 
