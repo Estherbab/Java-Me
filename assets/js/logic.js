@@ -88,11 +88,7 @@ function submitForm () {                                                        
 }
 submitButton.addEventListener('click', submitForm)                            // eventlistener for when the submit button is clicked 
 
-var newScores = {                                      // when one user finishes the quiz we have a new score in this object
-    inputInitials: "EB",
-    score: 100
 
-}
 
 let totalScores = [{                                  // the previous scores of all the users that have taken the test, each array is pushed to local storage
     inputInitials: "EB",
@@ -115,7 +111,15 @@ else {
     var storedhighScores = []                                                              // if it is null we going to set it to an empty array
 }
 
-console.log(storedhighScores)                                                              // if we log storedhighScores we get the initials
+var newScores = {                                                                       // when one user finishes the quiz we have a new score in this object
+    inputInitials: "TM",
+    score: 100
+
+}
+
+
+storedhighScores.push(newScores)                                                            // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
+console.log(storedhighScores)                                                              // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
 //console.log(storedhighScores[0].inputInitials);                                         // if we log this we get the first initials in the array
            
 
