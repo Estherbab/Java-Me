@@ -8,13 +8,18 @@ var startButton = document.querySelector(".btn")
 //var displayquestions = document.querySelector(".hide")
 var questionsContainer = document.getElementById("questions");
 var endScreen = document.getElementById("end-screen")
-var finalScore = localStorage.getItem("final-score")
-var inputInitials = document.getElementById("initials")
-var submitButton = document.getElementById("submit")
-var feedback = document.getElementById("feedback")
-var highScores = document.querySelector(".scores")
 var questiontitle = document.getElementById("question-title")
 var choicesEl = document.getElementById("choices")
+var feedback = document.getElementById("feedback")
+var highscoresEl = document.getElementById("highscores")
+var submitButton = document.getElementById("submit")
+var userScore = document.querySelector(".scores")
+var finalScore = localStorage.getItem("final-score")
+var inputInitials = document.getElementById("initials")
+
+
+
+
 
 
 // Function declared when start button is clicked, the startscreen is hidden and quiz screen shown    
@@ -31,7 +36,7 @@ var timerInterval = setInterval(function () {
         clearInterval(timerInterval);                                                    // stop & clear the timerinterval 
        // sendMessage();
     }
-    }, 1000); //1 second = 1000 milliseconds
+    }, 1000); //1 second = 1000 milliseconds, Execute every second
 
     console.log("Quiz Started!");                                                          // console.log when quiz starts
     startScreen.style.display = 'none';                                                   // hides the start screen
@@ -90,7 +95,10 @@ choiceButton.addEventListener("click", function(event){                         
        
 });
     }   
+
 }
+
+// LOCAL STORAGE * LOCAL STORAGE * LOCAL STORAGE * LOCAL STORAGE * LOCAL STORAGE * LOCAL STORGAE
 
 
 // function for the submitform when the submitButton is clicked an eventlistener goes off after the user inputs their initials, 
@@ -103,24 +111,17 @@ function submitForm () {
     
     }
     
-    storedhighScores.push(newScores)                                                                        // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array 
-    
-    localStorage.setItem("highScores", JSON.stringify(storedhighScores))                                  // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
-    console.log(storedhighScores)                                                                      // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
+    storedhighScores.push(newScores)                                                                        // to add newscore to storedhighScores and push it to local storage: push is a method that adds an item to the end of an array
+    localStorage.setItem("highscores", JSON.stringify(storedhighScores))                                  // when the page loads with the keyname of highScores we going to pass the array of objects in JSON.stringify
+    console.log(storedhighScores)                                                                        // if we log storedhighScores we get all the scores stored & the new score that has been pushed to the array 
   
 }
 submitButton.addEventListener('click', submitForm) 
-if (console.log("Initials submitted")) {
+if (console.log("Initials submitted")) { 
 
 }
 
-
-
-
-// LOCAL STORAGE
-
- // the previous scores of all the users that have taken the test, each array is pushed to local storage
-
+// The previous scores of all the users that have taken the test, each array is pushed to local storage
 let totalScores = [{   
     inputInitials: "EB",                            
     score: 100
@@ -129,17 +130,17 @@ let totalScores = [{
     inputInitials: "SK",
     score: 100}]
 
-//var storedhighScores = JSON.parse(localStorage.getItem("highScores"))
+// When the page loads i want to get the data from from local storage, or set variable to an empty array
+// When the user finishes the quiz i want to store their data by adding it to previous scores
 
-
-
-if(JSON.parse(localStorage.getItem("highScores")) !== null){                                                      // if the highScores is not null
+if(JSON.parse(localStorage.getItem("highscores")) !== null){                                                      // if the highScores is not null
     console.log("Highscores not null");                                                                          // when its not null we will see the keyname of highScores and the Value in local storage/console
-var storedhighScores = JSON.parse(localStorage.getItem("highScores"))                                           // then set the variable of storehighScores to be this value and save to local storage
+var storedhighScores = JSON.parse(localStorage.getItem("highscores"))                                           // then set the variable of storehighScores to be this value and save to local storage
 }
 else {
     console.log(" Highscores is Null")
     var storedhighScores = []                                                                                 // else if it is null we going to set it to an empty array
+    var highscores = []
 }
 
 function displayscores () {
@@ -147,41 +148,27 @@ function displayscores () {
 //highScores.append(JSON.stringify(storedhighScores))
 
 //loop through the array length of storedhighScores, then for each item add plus 1 object,
-//so in the concole you will see each of the individual objects
+//so in the console you will see each of the individual objects
 for (let i = 0; i < storedhighScores.length; i++) {
 console.log(storedhighScores[i]);
-
-//highScores.append(storedhighScores[i].inputInitials)                                                    // it showed all the initails on one page clamped together, and does not over write all the initials
-//highScores.textContent = storedhighScores[i].inputInitials                                             // with text content it shows 1 initial at a time, the last initial, it overwrites whatever is there and shows last one
 
 // 1. create an element; we creating a div element for each single score
 var eachScore = document.createElement("div")                                                   
 // 2. attach styling/attribute; we setting the text content to the initials being inout
-eachScore.textContent = storedhighScores[i].inputInitials                                  
+eachScore.textContent = storedhighScores[i].inputInitials                          
 // 3. we appending each single score to each dive element
-highScores.append(eachScore);                                                              
+userScore.append(eachScore);                                        
 }
 }
 displayscores()
 
 
+ 
+
+
 
 
 //console.log(storedhighScores[0].inputInitials);                                                 // if we log this we get the first initials in the array
-           
-
-//console.log(JSON.parse(localStorage.getItem("testing")));
-
-//console.log(newscores[0].inputInitials, newscores[0].score);
-
-
-
-// When the page loads i want to get the data from from local storage, or set variable to an empty array
-
-
-
-
-// when the user finishes the quiz i want to store their data by adding it to previous scores
 
 
 
@@ -200,20 +187,11 @@ displayscores()
 
 
 
-//eachQuestion.textContent = codequizQuestions.questions;
-//choicesEl.innerHTML = '';
-//codequizQuestions.forEach((arrayitem) => {
 
-//var questionTitle = document.getElementById("question-title")
-//let choiceButton = document.createElement('button')
-//var currentQuestion = codequizQuestions[questionIndex];   
-//var i = 0
-//questionTitle.textContent = codequizQuestions.question
-//choiceButton.textContent = currentQuestion.choices[i];
-//choiceButton.classList.add('choice');
-//choiceButton.addEventListener ('click', () => checkAnswer (index)); 
-//choicesEl.appendChild(choiceButton);
-//});
-//}
 
-//nextButton.style.display = 'none';
+
+
+
+
+
+
