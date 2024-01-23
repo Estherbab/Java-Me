@@ -64,14 +64,14 @@ let userAnswer = event.target;
 console.log(userAnswer.textContent);
 if (userAnswer.textContent === codequizQuestions[questionIndex]-answer) {
 questionIndex++;
-if (questionIndex === codequizQuestions.length) {
+if (questionIndex === choicesArr.length) {
 endQuiz();
 } else E
 getQuestions ();
 correctAudio.play();
 } else {
 timeLeft -= 10; questionIndex++;
-if (questionIndex === codequizQuestions.length) {
+if (questionIndex === choicesArr.length) {
 endQuiz();
 } else {
 getQuestions ();
@@ -84,10 +84,14 @@ incorrectAudio.play();
 choiceButton.addEventListener("click", function(event){                                   // function waits for the choicebutton to be clicked(event) then responds to it
     console.log(event.target.textContent)                                                // console log to see if eventlistener is working
     if(event.target.textContent === currentQuestion.correctanswer) {                    // if the button clicked is = to the correct answer, then the answer is correct
+        alert("Correct")
         console.log("correct")                                                         // checking the string is correct
+        
+
         
     } else {
        console.log("incorrect");                                                     // consolelog incorrect if the button clicked is the wrong answer
+       alert("incorrect")
         secondscounter -= 5                                                         // deduct 5 seconds from timer if user clicks wrong answer
     }
     
@@ -105,6 +109,7 @@ choiceButton.addEventListener("click", function(event){                         
 });
     }   
 }
+
 
 // function for the submitform when the submitButton is clicked an eventlistener goes off after the user inputs their initials, 
 //it will take the new object with the intials from the new input, then it will be pushed to stored scores. Then it will be pushed to local storage.
