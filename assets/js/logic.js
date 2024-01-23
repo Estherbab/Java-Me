@@ -16,6 +16,8 @@ var submitButton = document.getElementById("submit")
 var userScore = document.querySelector(".scores")
 var finalScore = localStorage.getItem("final-score")
 var inputInitials = document.getElementById("initials")
+var score
+var finalscoreSpan = document.getElementById("final-score")
 
 
 
@@ -89,6 +91,8 @@ choiceButton.addEventListener("click", function(event){                         
             console.log('last question')                                     // when the last question is answered log in console
             endScreen.classList.remove("hide")                              // the hide class of the end screen is removed and the endscreen is displayed
             questions.style.display = "none"                               // the questions screen is hidden
+            score = secondscounter                                          // i want the score to be = to the time displayed when the test ends 
+            finalscoreSpan.textContent = score                             // i want the textcontent of the finalscore to be the score
             secondscounter = 0                                            // secondscounter is emptied to 0
             timer.style.display = "none"                                 // hides the timer when endscreen is displayed
     }
@@ -105,9 +109,10 @@ choiceButton.addEventListener("click", function(event){                         
 //it will take the new object with the intials from the new input, then it will be pushed to stored scores. Then it will be pushed to local storage.
 function submitForm () {                                                          
     console.log(inputInitials.value);                                                                      // .value property used on an input(inputInitials) to get the value of the text input
+    console.log(score)
     var newScores = {                                                                                     // when one user finishes the quiz we have a new score in this object
         inputInitials: inputInitials.value,                                                              // instead of hardcoding the initials e.g "EB" we change it to .value property to get the value of the text input
-        score: 100
+        score: score
     
     }
     
@@ -117,7 +122,7 @@ function submitForm () {
   
 }
 submitButton.addEventListener('click', submitForm) 
-if (console.log("Initials submitted")) { 
+if (console.log("Initials submitted")) {
 
 }
 
@@ -132,7 +137,6 @@ let totalScores = [{
 
 // When the page loads i want to get the data from from local storage, or set variable to an empty array
 // When the user finishes the quiz i want to store their data by adding it to previous scores
-
 if(JSON.parse(localStorage.getItem("highscores")) !== null){                                                      // if the highScores is not null
     console.log("Highscores not null");                                                                          // when its not null we will see the keyname of highScores and the Value in local storage/console
 var storedhighScores = JSON.parse(localStorage.getItem("highscores"))                                           // then set the variable of storehighScores to be this value and save to local storage
@@ -143,24 +147,8 @@ else {
     var highscores = []
 }
 
-function displayscores () {
-//highScores.textContent = JSON.stringify(storedhighScores)
-//highScores.append(JSON.stringify(storedhighScores))
 
-//loop through the array length of storedhighScores, then for each item add plus 1 object,
-//so in the console you will see each of the individual objects
-for (let i = 0; i < storedhighScores.length; i++) {
-console.log(storedhighScores[i]);
 
-// 1. create an element; we creating a div element for each single score
-var eachScore = document.createElement("div")                                                   
-// 2. attach styling/attribute; we setting the text content to the initials being inout
-eachScore.textContent = storedhighScores[i].inputInitials                          
-// 3. we appending each single score to each dive element
-userScore.append(eachScore);                                        
-}
-}
-displayscores()
 
 
  
