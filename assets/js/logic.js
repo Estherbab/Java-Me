@@ -55,43 +55,25 @@ function displayquestions() {
         choiceButton.textContent = currentQuestion.choices[i]                                // the text content for each choice button = the current question title, all the choices & the index number of the choices
         choicesEl.appendChild(choiceButton)                                                 // adds a new child node to the existing parent node in html 
 
-// audio for correct and incorrect sound
-const correctAudio = new Audio('./assets/sfx/correct.wav');
-const incorrectAudio = new Audio('./assets/sfx/incorrect.wav');
-// function to check user answer
-function checkAnswer(event) {
-let userAnswer = event.target;
-console.log(userAnswer.textContent);
-if (userAnswer.textContent === codequizQuestions[questionIndex]-answer) {
-questionIndex++;
-if (questionIndex === choicesArr.length) {
-endQuiz();
-} else E
-getQuestions ();
-correctAudio.play();
-} else {
-timeLeft -= 10; questionIndex++;
-if (questionIndex === choicesArr.length) {
-endQuiz();
-} else {
-getQuestions ();
-incorrectAudio.play();
-}
-}
-}
+
+// audio for correct and incorrect sound when correct/incorrect answer is selected by user
+var correctAudio = new Audio('./assets/sfx/correct.wav');
+var incorrectAudio = new Audio('./assets/sfx/incorrect.wav');
 
 // add event listener on choices buttons to
-choiceButton.addEventListener("click", function(event){                                   // function waits for the choicebutton to be clicked(event) then responds to it
-    console.log(event.target.textContent)                                                // console log to see if eventlistener is working
-    if(event.target.textContent === currentQuestion.correctanswer) {                    // if the button clicked is = to the correct answer, then the answer is correct
-        alert("Correct")
-        console.log("correct")                                                         // checking the string is correct
+choiceButton.addEventListener("click", function(event){                                     // function waits for the choicebutton to be clicked(event) then responds to it
+    console.log(event.target.textContent)                                                  // console log to see if eventlistener is working
+    if(event.target.textContent === currentQuestion.correctanswer) {                      // if the button clicked is = to the correct answer, then the answer is correct
+        alert("Correct")                                                                 // alert box pops up with corrrect if right answer is selected
+        correctAudio.play();                                                            // plays correct audio if user enters correct answer
+        console.log("correct")                                                         // checking the string is correct inside console log
         
 
         
     } else {
-       console.log("incorrect");                                                     // consolelog incorrect if the button clicked is the wrong answer
-       alert("incorrect")
+       console.log("incorrect");                                                       // consolelog incorrect if the button clicked is the wrong answer
+       alert("incorrect")                                                             // alert box pops up showing incorrect if wrong answer selected
+       incorrectAudio.play();                                                        // plays incorrect audio if user enters wrong answer
         secondscounter -= 5                                                         // deduct 5 seconds from timer if user clicks wrong answer
     }
     
