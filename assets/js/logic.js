@@ -84,13 +84,13 @@ choiceButton.addEventListener("click", function(event){                         
         secondscounter -= 5                                                         // deduct 5 seconds from timer if user clicks wrong answer
     }
     
-    if(questionIndex < codequizQuestions.length - 1){                            // if the question index is less than the codequizquestions length -1 then keep going through the questions
-        questionIndex++                                                         // this is to loop through each question (++ adds 1)
-        displayquestions();                                                    // keep displaying the questions as you go through the loop
-    } else {                                                                  // else if the above conditions are not met, execute the code below
-            console.log('last question')                                     // when the last question is answered log in console
-            endScreen.classList.remove("hide")                              // the hide class of the end screen is removed and the endscreen is displayed
-            questions.style.display = "none"                               // the questions screen is hidden
+    if(questionIndex < codequizQuestions.length - 1){                              // if the question index is less than the codequizquestions length -1 then keep going through the questions
+        questionIndex++                                                           // this is to loop through each question (++ adds 1)
+        displayquestions();                                                      // keep displaying the questions as you go through the loop
+    } else {                                                                    // else if the above conditions are not met, execute the code below
+            console.log('last question')                                       // when the last question is answered log in console
+            endScreen.classList.remove("hide")                                // the hide class of the end screen is removed and the endscreen is displayed
+            questions.style.display = "none"                                 // the questions screen is hidden
             score = secondscounter                                          // i want the score to be = to the time displayed when the test ends 
             finalscoreSpan.textContent = score                             // i want the textcontent of the finalscore to be the score
             secondscounter = 0                                            // secondscounter is emptied to 0
