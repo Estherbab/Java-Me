@@ -5,74 +5,125 @@ How well do I know Javascript Fundamentals? Well i will be creating a timed quiz
 
 
 
-Lastly, if your project is deployed, include a link to the deployed application here.
-
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
-
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
 
 
-## Table of Contents (Optional)
 
-If your README is very long, add a table of contents to make it easy for users to find what they need.
+Live link to deployed application [link to deployed application](https://guides.github.com/features/mastering-markdown/).
 
-* [Installation](#installation)
-* [Usage](#usage)
+---
+
+
+## Table of Contents 
+
+
+
+* [Start](#start)
+* [Questions](#questions)
+* [End](#end)
+* [Highscores](#highscores)
+* [Console](#console)
+* [Localstorage](#localstorage)
 * [Credits](#credits)
 * [License](#license)
 
 
-## Startscreen
+## Code Quiz Questions
 
 What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 
-## Usage 
 
-Provide instructions and examples for use. Include screenshots as needed. 
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-```md
-![alt text](assets/images/screenshot.png)
-```
+## Start
 
 
-## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+The screenshot below shows the startscreen, before the user clicks the start button the timer on the right hand corner is set to zero. When the user clicks on the start button to start the quiz, the timer starts counting down and the questions screen is displayed:
 
 
-## License
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-24%20at%2000.12.00.png)
 
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
+
+
+## Questions
+
+The screenshot below shoes the questions screen. When the user clicks on the start button on the start screen, the start screen is hidden and the questions screen is displayed: The timer on the right hand corner starts counting down and the first questions then appear:
+
+
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-23%20at%2023.08.42.png)
+
 
 
 ---
 
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
 
-## Badges
 
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+When the correct answer is clicked, an alert box is displayed informing the user if they got the answer right or wrong. simultaneously a sound is played when the user clicks on the correct or incorrect answer. If the user clicks on the wrong answer 5 seconds are deducted from the time remaining on the clock. the next question is then displayed.
 
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
-## Features
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-23%20at%2023.08.56.png)
 
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
 
-## Contributing
 
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
+## End
 
-## Tests
+Once the user has answered all the questions the end screen is displayed. The page shows the users final score and prompts them to input their initials and click on the submit button to submit the test results:
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
+
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-23%20at%2023.09.22.png)
+
+
+
+## Highscores
+
+Once the submit button is clicked in the end screen, it takes the user to the highscores screen and they can see their test score. The old and new scores are populated on this highscores screen page whenever the user submits their test results.
+
+
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-23%20at%2023.30.48.png)
+
+
+
+## Console
+
+The screenshot below shows the highscores of all the test results of the students logged in the console. Each students initial and score is logged in the console and on the left you can see it shown in the document.
+
+
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-23%20at%2023.32.00.png)
+
+
+
+## Localstorage
+
+The screenshot below shows the highscores saved to local storage and on the left shown in the live html document.
+
+
+![the following image shows the webpages functionality](assets/images/Screenshot%202024-01-23%20at%2023.31.34.png)
+
+
+
+## Credits
+
+Giving credit to a couple sites that helped me out in some areas with this challenge.
+
+Discord Group:
+
+Stack Overflow : https://stackoverflow.com/questions/9419263/how-to-play-audio
+
+Shecodes: https://www.shecodes.io/athena/24825-how-to-select-a-class-in-javascript#:~:text=To%20select%20a%20class%20in%20JavaScript%2C%20you%20can%20use%20the,along%20with%20the%20class%20selector.&text=const%20element%20%3D%20document.,querySelector(%27.
+
+Phind: https://www.phind.com/search?home=true
+
+W3Schools: https://www.w3schools.com/js/js_object_properties.asp#:~:text=Properties%20are%20the%20values%20associated,but%20some%20are%20read%20only.
+
+
+
+
+
+## License
+
+MIT License
+
+
+---
 
 ---
 
